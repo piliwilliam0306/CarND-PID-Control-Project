@@ -3,6 +3,20 @@ Self-Driving Car Engineer Nanodegree Program
 
 ---
 
+## Describe the effect each of the P, I, D components
+* P stands for proporitonal which represents the error value. If the error is too large, the vehicle is likely to overshoot and oscillate around the target trajectory.
+* I stands for integral which accumulate the past error values over time, it avoids the car to get in the exact trajectory.
+* D is proportional to the rate of change of the CET, which effectively damps the oscillations created by the P component.
+
+## Final parameters
+* Kp: 0.075
+* Ki: 0.0001
+* Kd: 0.5
+
+## Tuning parameters
+The parameters were chosen by monitoring oscillation caused by the P controller, the Kp was set once the vehicle is not oscillating too much, I then started to add Kd term until veicle drives smoothly.
+Better performance could achive by adding another PID controller for the throttle and using the Twiddle algorithm to automatically fine tune the parameters
+
 ## Dependencies
 
 * cmake >= 3.5
